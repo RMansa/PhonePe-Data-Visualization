@@ -559,7 +559,7 @@ elif selected_option == f"{data_exploration_icon} Data Exploration":
     st.title(":purple[Data Exploration Page]")
     st.write("Explore your data here!")
     
- # Improve tab styling with larger font and purple color
+ 
     st.markdown(
         """
         <style>

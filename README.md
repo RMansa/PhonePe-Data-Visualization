@@ -15,7 +15,7 @@ PhonePe Pulse is a website showcasing over 2000+ Crore transactions on an intera
 - **psycopg2:** To store and retrieve data from a PostgreSQL database.
 - **Streamlit:** To create a graphical user interface.
 - **json:** To load JSON files.
-- **git.repo.base:** To clone the GitHub repository.
+
 
 ## Workflow
 

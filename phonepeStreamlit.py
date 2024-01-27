@@ -57,7 +57,7 @@ Top_user = pd.DataFrame(table6, columns = ("States", "Years", "Quarter", "Pincod
 
 
 
-def Aggregate_insurance(df,year):
+def India_plot_1(df,year):
     ai= df[df["Years"] == year]
     ai.reset_index(drop= True, inplace= True)
 
@@ -111,7 +111,7 @@ def Aggregate_insurance(df,year):
     return ai
 
 
-def Aggregate_insurance_1(df,quarter):
+def India_plot_2(df,quarter):
     ai2= df[df["Quarter"] == quarter]
     ai2.reset_index(drop= True, inplace= True)
 
@@ -585,7 +585,7 @@ elif selected_option == f"{data_exploration_icon} Data Exploration":
                     help="Choose a year for transaction analysis",
                 )
 
-            aggregate_transaction = Aggregate_insurance(Aggregate_transaction, years)
+            aggregate_transaction = India_plot_1(Aggregate_transaction, years)
 
             col1,col2=st.columns(2)
             with col1:
@@ -600,7 +600,7 @@ elif selected_option == f"{data_exploration_icon} Data Exploration":
                     help="Choose a quarter for transaction analysis",
                 )
 
-            aggregate_transaction_1 = Aggregate_insurance_1(aggregate_transaction, quarters)
+            aggregate_transaction_1 = India_plot_2(aggregate_transaction, quarters)
 
     
             state_aggregate = st.selectbox("Select the State(at)", aggregate_transaction["States"].unique())
@@ -637,7 +637,7 @@ elif selected_option == f"{data_exploration_icon} Data Exploration":
                     help="Choose a year for map transaction analysis",
                 )
 
-            map_transaction = Aggregate_insurance(Map_transaction, years)
+            map_transaction = India_plot_1(Map_transaction, years)
 
             col1, col2 = st.columns(2)
             with col1:
@@ -659,7 +659,7 @@ elif selected_option == f"{data_exploration_icon} Data Exploration":
                     help="Choose a quarter for map transaction analysis",
                 )
 
-            map_transaction_1 = Aggregate_insurance_1(map_transaction, quarters)
+            map_transaction_1 = India_plot_2(map_transaction, quarters)
 
             col1, col2 = st.columns(2)
             with col1:
@@ -692,14 +692,14 @@ elif selected_option == f"{data_exploration_icon} Data Exploration":
             with col1:
                 years= st.slider("Select the Year(tt)", Top_transaction["Years"].min(), Top_transaction["Years"].max(),Top_transaction["Years"].min())
  
-            top_tran= Aggregate_insurance(Top_transaction,years)
+            top_tran= India_plot_1(Top_transaction,years)
 
             
             col1,col2= st.columns(2)
             with col1:
                 quarters_t2= st.slider("Select the Quarter(tt)", top_tran["Quarter"].min(), top_tran["Quarter"].max(),top_tran["Quarter"].min())
 
-            top_tran_1= Aggregate_insurance_1(top_tran, quarters_t2)
+            top_tran_1= India_plot_2(top_tran, quarters_t2)
 
         elif method_top == "Top User Analysis":
             col1,col2= st.columns(2)

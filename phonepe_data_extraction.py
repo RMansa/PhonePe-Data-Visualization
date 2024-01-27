@@ -37,7 +37,7 @@ for state in aggregator_trans_list:
                     col1["Quarter"].append(int(file.strip(".json")))  
 
 
-aggre_transaction = pd.DataFrame(col1)
+aggregate_transaction = pd.DataFrame(col1)
 
 
 
@@ -76,7 +76,7 @@ for state in aggregator_user_list:
             except:
                  pass 
 
-aggre_user = pd.DataFrame(col2)
+aggregate_user = pd.DataFrame(col2)
 
 
 
@@ -239,7 +239,7 @@ try:
     step.execute(create_query1)
     mydb.commit()
 
-    for index, row in aggre_transaction.iterrows():
+    for index, row in aggregate_transaction.iterrows():
         insert_query1 = '''INSERT INTO aggregated_transaction (States, Years, Quarter, Transaction_type, Transaction_count, Transaction_amount)
                            values(%s,%s,%s,%s,%s,%s)'''
         values = (row["States"],
@@ -274,7 +274,7 @@ create_query2 = '''CREATE TABLE if not exists aggregated_user (States varchar(50
 step.execute(create_query2)
 mydb.commit()
 
-for index,row in aggre_user.iterrows():
+for index,row in aggregate_user.iterrows():
     insert_query2 = '''INSERT INTO aggregated_user (States, Years, Quarter, Brands, Transaction_count, Percentage)
                                                     values(%s,%s,%s,%s,%s,%s)'''
     values = (row["States"],
